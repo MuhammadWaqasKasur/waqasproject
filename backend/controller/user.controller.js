@@ -7,6 +7,7 @@ const JWT_SCRET = "absdtr"
 
 exports.store = async (req, res) => {
     try {
+        console.log(req.body)
         const hashedPassword=await bcrypt.hash(req.body.password,salt);
         req.body.password=hashedPassword;
         const user = await User.create(req.body)
@@ -103,8 +104,10 @@ const user=await User.findOne({email:email})
 if(!user){
     return res.json({message:"User not found"})
 }
-const code = Math.random()
-return res.json({user,message:"User found Successfully"})
+const code = Math.floor(100000 + Math.random() * 900000);
+user.code=code;
+user.save();
+return res.json({success:true,message:"Email Send Successfully"})
     }
     catch(err){
         console.log(err)

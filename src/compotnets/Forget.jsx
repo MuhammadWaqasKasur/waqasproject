@@ -20,8 +20,6 @@ const Forget = () => {
                 password: ""
             })
             alert(response.data.message)
-            localStorage.setItem("token", response.data.token)
-            navigate("/dashboard")
         }
 
     }

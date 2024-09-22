@@ -1,31 +1,34 @@
 import React, { useState } from 'react'
 import "./Login.css"
+import axios from 'axios'
+
 
 const Register = () => {
     const [formData, setFormData] = useState({
         name: "",
         age: "",
         email: "",
-        address: "",
+        password: "",
         gender: "",
         country: ""
     })
     const onChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
-    const onSubmit = (e) => {
+    const onSubmit = async(e) => {
         e.preventDefault();
-        console.log(formData)
+        const response=await axios.post("http://localhost:8082/user",formData)
+        console.log(response.data)
         setFormData({
             name: "",
             email: "",
             age: "",
             country: "",
-            address: "",
+            password: "",
             gender: ""
         })
     }
-    const { name, age, email, address, gender, country } = formData;
+    const { name, age, email, password, gender, country } = formData;
     return (
         <div className="container-main d-flex justify-content-center align-items-center flex-column">
             <div className="container d-flex justify-content-center align-items-center">
@@ -43,8 +46,8 @@ const Register = () => {
                         <input type="email" class="form-control" id="formGroupExampleInput" name='email' value={email} onChange={onChange} placeholder="Enter Your Email" />
                     </div>
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" name='address' value={address} onChange={onChange} placeholder="Enter Your Address" />
+                        <label for="formGroupExampleInput" class="form-label">password</label>
+                        <input type="password" class="form-control" id="formGroupExampleInput" name='password' value={password} onChange={onChange} placeholder="Enter Your password" />
                     </div>
                     <div class="mb-3" style={{ display: "flex", gap: "10px" }}>
                         <label for="formGroupExampleInput" class="form-label" style={{ display: "flex", gap: "5px" }}>Gender:</label>

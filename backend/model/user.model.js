@@ -10,6 +10,9 @@ const userSchema=mongoose.Schema({
     },
     password:{
         type:String
+    },
+    code:{
+        type:Number
     }
 })
 
