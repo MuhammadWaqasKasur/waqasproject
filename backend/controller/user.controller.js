@@ -113,3 +113,23 @@ return res.json({success:true,message:"Email Send Successfully"})
         console.log(err)
     }
 }
+
+exports.verify=async(req,res)=>{
+    try{
+const {email,code}=req.body;
+const user=await User.findOne({email:email})
+if(!user){
+    return res.json({message:"User not Found",success:false})
+}
+if(user.code == code){
+    return res.json({message:"User code Verified",success:true})
+}
+else{
+    return res.json({message:"Code not matched"})
+}
+    }
+    catch(err){
+        console.log(err);
+        
+    }
+}

@@ -10,6 +10,7 @@ router.get("/",controller.index)
 router.get("/:id",controller.get)
 router.delete("/:id",controller.destroy)
 router.put("/:id",controller.update)
+router.post("/verify",controller.verify)
 
 
 module.exports=router;
