@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Login.css"
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const navigate=useNavigate();
@@ -39,6 +40,7 @@ const Login = () => {
                         <label for="formGroupExampleInput" class="form-label">Password</label>
                         <input type="password" class="form-control" id="formGroupExampleInput" name='password' value={password} onChange={onChange} placeholder="Enter Password" />
                     </div>
+                    <Link class="nav-link" to="/forget">Forget, Password</Link><br/>
                     <button className='btn btn-primary' type='submit'>Login</button>
                 </form>
             </div>

@@ -34,6 +34,9 @@ const Navebar = () => {
                             <li class="nav-item">
                                 <Link class="nav-link" to="/login" style={{ color: 'white' }}>Login</Link>
                             </li>
+                            {/* <li class="nav-item">
+                                <Link class="nav-link" to="/forget" style={{ color: 'white' }}>Forget</Link>
+                            </li> */}
                             <li class="nav-item">
                                 <Link class="nav-link" to="/slider" style={{ color: 'white' }}>Slider</Link>
                             </li>

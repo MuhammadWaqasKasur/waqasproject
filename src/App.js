@@ -14,7 +14,7 @@ import ProductDescription from './pages/ProductDescription';
 import Slider from './compotnets/Slider';
 import Checkout from './compotnets/Checkout';
 import Dashboard from './pages/Dashboard';
-
+import Forget from './compotnets/Forget';
 
 function App() {
   return (
@@ -30,6 +30,8 @@ function App() {
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/checkout" element={<Checkout/>}></Route>
         <Route path='/dashboard' element={<Dashboard/>}></Route>
+        <Route path="/forget" element={<Forget/>}></Route>
+ 
       </Routes>
       {/* <Cards /> */}
       {/* <User /> */}

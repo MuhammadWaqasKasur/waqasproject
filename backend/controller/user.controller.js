@@ -95,3 +95,18 @@ exports.update = async (req, res) => {
 }
 
 
+exports.forgot=async(req,res)=>{
+    try{
+const {email}=req.body;
+const user=await User.findOne({email:email})
+
+if(!user){
+    return res.json({message:"User not found"})
+}
+const code = Math.random()
+return res.json({user,message:"User found Successfully"})
+    }
+    catch(err){
+        console.log(err)
+    }
+}
